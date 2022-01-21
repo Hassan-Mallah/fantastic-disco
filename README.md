@@ -8,4 +8,4 @@ in exmaple.html
 - for hx-get i used this time mocky.io cool stuff, check it out :)
 
 
-- added 2 html exmples
+- added 2 html examples
