@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from .models import Author, Book
 from .forms import BookFormSet
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 
 
 # Create your views here.
+
+def index(request: HttpRequest):
+    return HttpResponse('welcome to index')
+
 
 
 def create_book(request: HttpRequest, pk):
@@ -19,7 +23,8 @@ def create_book(request: HttpRequest, pk):
             return redirect("create-book", pk=author.id)
 
     context = {
-        "formset": formset
+        "formset": formset,
+        "author": author
     }
 
     return render(request, 'create_book.html', context)
