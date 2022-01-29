@@ -20,6 +20,6 @@ from books.views import create_book, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name="index"),
     path('<pk>/', create_book, name="create-book"),
-    path('', index, name="index")
 ]

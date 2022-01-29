@@ -9,7 +9,8 @@
 
     <form>
         {% csrf_token %}
-        {{ formset }}
+        {{ formset.management_form }}
+        {{ formset.as_p }}
         <button>submit</button>
 
     </form>
