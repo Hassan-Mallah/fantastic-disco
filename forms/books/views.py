@@ -11,11 +11,9 @@ def index(request: HttpRequest):
     return HttpResponse('welcome to index')
 
 
-
 def create_book(request: HttpRequest, pk):
     author = Author.objects.get(pk=pk)
     formset = BookFormSet(request.POST or None)
-
 
     if request.method == 'POST':
         if formset.is_valid():
@@ -25,7 +23,7 @@ def create_book(request: HttpRequest, pk):
 
     context = {
         "formset": formset,
-        "author": author
+        "author": author,
     }
 
     return render(request, 'create_book.html', context)

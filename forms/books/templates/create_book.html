@@ -7,7 +7,7 @@
 <body>
     <h1>Create books for {{ author.name }}</h1>
 
-    <form>
+    <form method="POST">
         {% csrf_token %}
         {{ formset.management_form }}
         {{ formset.as_p }}

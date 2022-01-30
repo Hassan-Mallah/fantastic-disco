@@ -13,10 +13,10 @@ class BookForm(forms.ModelForm):
 
 
 BookFormSet = inlineformset_factory(
-    parent_model=Author,
-    model=Book,
+    Author,
+    Book,
     form=BookForm,
-    can_delete=True, # show / hide delete buttons
     min_num=2,  # minimum books to enter
-    extra=0  # extra forms to show (for empty forms)
+    extra=1,  # extra forms to show (for empty forms)
+    can_delete=False # show / hide delete buttons
 )
