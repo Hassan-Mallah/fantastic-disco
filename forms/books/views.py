@@ -27,3 +27,21 @@ def create_book(request: HttpRequest, pk):
     }
 
     return render(request, 'create_book.html', context)
+
+
+def create_book_formset(request: HttpRequest, pk):
+    author = Author.objects.get(pk=pk)
+    formset = BookFormSet(request.POST or None)
+
+    if request.method == 'POST':
+        if formset.is_valid():
+            formset.instance = author
+            formset.save()
+            return redirect("create-book", pk=author.id)
+
+    context = {
+        "formset": formset,
+        "author": author,
+    }
+
+    return render(request, 'create_book.html', context)

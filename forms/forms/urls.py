@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from books.views import create_book, index
+from books.views import create_book, create_book_formset, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', index, name="index"),
     path('<pk>/', create_book, name="create-book"),
+    path('create-book-formset/<pk>/', create_book_formset, name="create-book_formset"),
 ]
