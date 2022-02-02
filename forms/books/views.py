@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Author, Book
-from .forms import BookFormSet
+from .forms import BookFormSet, BookForm
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 
@@ -45,3 +45,10 @@ def create_book_formset(request: HttpRequest, pk):
     }
 
     return render(request, 'create_book.html', context)
+
+
+def create_book_form(request: HttpRequest):
+    context = {
+        "form": BookForm()
+    }
+    return render(request, "partials/book_form.html", context)
