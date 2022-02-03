@@ -3,12 +3,14 @@
 {% block content %}
 <h1>Create books for {{ author.name }}</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ formset.management_form }}
-    {{ formset.as_p }}
-    <button>submit</button>
+<!-- hx-post for post request -->
+<!-- hx-swap  -->
+<button hx-post="{% url 'book-form' %}" hx-swap="beforeend" hx-target="#bookforms">submit</button>
 
-</form>
+<!-- htmx will add a new book to this div on every submit, using hx-swap and hx-target -->
+<div id="bookforms">
+
+</div>
+
 
 {% endblock %}

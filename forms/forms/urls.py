@@ -28,5 +28,5 @@ urlpatterns = [
     path('', index, name="index"),
     path('<pk>/', create_book, name="create-book"),
     path('create-book-formset/<pk>/', create_book_formset, name="create-book-formset"),
-    path('create-book-form', create_book_form, name="create-book-form"),
+    path('book-form', create_book_form, name="book-form"),
 ]
