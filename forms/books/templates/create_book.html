@@ -4,8 +4,12 @@
 <h1>Create books for {{ author.name }}</h1>
 
 <!-- hx-post for post request -->
-<!-- hx-swap  -->
-<button hx-post="{% url 'book-form' %}" hx-swap="beforeend" hx-target="#bookforms">submit</button>
+<!-- hx-swap replace returned html with the current one  -->
+<!-- hx-target id of target tag -->
+<!-- http://127.0.0.1:8000/1/ -->
+<button hx-post="{% url 'book-form' %}" hx-swap="beforeend" hx-target="#bookforms">
+    Add book
+</button>
 
 <!-- htmx will add a new book to this div on every submit, using hx-swap and hx-target -->
 <div id="bookforms">
