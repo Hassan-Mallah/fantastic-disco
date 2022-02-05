@@ -20,7 +20,8 @@ from books.views import (
     create_book,
     create_book_formset,
     index,
-    create_book_form
+    create_book_form,
+    detail_book
 )
 
 urlpatterns = [
@@ -29,4 +30,5 @@ urlpatterns = [
     path('<pk>/', create_book, name="create-book"),
     path('create-book-formset/<pk>/', create_book_formset, name="create-book-formset"),
     path('book-form', create_book_form, name="book-form"),
+    path('detail-book/<pk>', detail_book, name="detail-book"),
 ]
