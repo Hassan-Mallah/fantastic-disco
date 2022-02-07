@@ -20,7 +20,7 @@ def create_book(request: HttpRequest, pk):
             book = form.save(commit=False)
             book.author = author
             book.save()
-            return redirect("detail-book", pk=author.id)
+            return redirect("detail-book", pk=book.id)
         # in case of errors in the form, return partial template
         else:
             return render(request, 'partials/book_form.html', {"form": form})
