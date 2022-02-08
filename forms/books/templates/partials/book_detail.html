@@ -1,3 +1,8 @@
 <div>
-    {{ book.title }}, {{ book.number_of_pages }}
+
+    <h3>{{ book.title }}</h3>
+    <p>Number of Pages: {{ book.number_of_pages }}</p>
+    <button hx-get="">Update</button>
+    <!-- we'll use post for delete -->
+    <button hx-post>Delete</button>
 </div>

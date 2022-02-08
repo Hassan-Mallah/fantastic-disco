@@ -13,6 +13,7 @@ def index(request: HttpRequest):
 
 def create_book(request: HttpRequest, pk):
     author = Author.objects.get(pk=pk)
+    books = Book.objects.filter(author=author)
     form = BookForm(request.POST or None)
 
     if request.method == 'POST':
@@ -29,6 +30,7 @@ def create_book(request: HttpRequest, pk):
     context = {
         "form": form,
         "author": author,
+        "books": books,
     }
 
     return render(request, 'create_book.html', context)

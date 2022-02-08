@@ -4,6 +4,11 @@
     hx-swap="outerHTML" the whole current div
     hx-post="." we need hx-post not normal post and . for current page
 -->
+
+<!--
+    WHen pushing submit, we make post call for create_book
+    create_book returns detail-book :)
+-->
 <div hx-target="this" hx-swap="outerHTML">
     <form method="POST">
         {% csrf_token %}
