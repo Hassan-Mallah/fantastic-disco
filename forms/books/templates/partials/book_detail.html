@@ -4,5 +4,6 @@
     <p>Number of Pages: {{ book.number_of_pages }}</p>
     <button hx-get="">Update</button>
     <!-- we'll use post for delete -->
-    <button hx-post>Delete</button>
+    <!--  send an argument book.id  -->
+    <button hx-post="{% url 'delete-book' book.id %}">Delete</button>
 </div>

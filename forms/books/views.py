@@ -62,9 +62,16 @@ def create_book_form(request: HttpRequest):
     return render(request, "partials/book_form.html", context)
 
 
+# return book details, used with htmx
 def detail_book(request: HttpRequest, pk):
     book = Book.objects.get(pk=pk)
     context = {
         "book": book
     }
     return render(request, "partials/book_detail.html", context)
+
+
+def delete_book(request: HttpRequest, pk):
+    book = Book.objects.get(pk=pk)
+    book.delete()
+    return HttpResponse('')
