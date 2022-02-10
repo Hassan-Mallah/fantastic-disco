@@ -1,9 +1,10 @@
-<div>
-
+<div hx-target="this" hx-swap="outerHTML" >
     <h3>{{ book.title }}</h3>
     <p>Number of Pages: {{ book.number_of_pages }}</p>
-    <button hx-get="">Update</button>
-    <!-- we'll use post for delete -->
-    <!--  send an argument book.id  -->
+    <!--    we'll use update view + book_form.html
+            if it's update, dont create a new book  -->
+    <button hx-get="{% url 'update-book' book.id %}">Update</button>
+    <!--     we'll use post for delete
+            send an argument book.id  -->
     <button hx-post="{% url 'delete-book' book.id %}">Delete</button>
 </div>

@@ -13,6 +13,13 @@
     <form method="POST">
         {% csrf_token %}
         {{ form }}
+
+        <!-- from udpate button -->
+        {% if book %}
+        <button hx-post="{% url 'update-book' book.id %}">submit</button>
+
+        {% else %}
         <button hx-post=".">submit</button>
+        {% endif %}
     </form>
 </div>

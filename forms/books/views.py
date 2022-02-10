@@ -75,3 +75,22 @@ def delete_book(request: HttpRequest, pk):
     book = Book.objects.get(pk=pk)
     book.delete()
     return HttpResponse('')
+
+
+def update_book(request: HttpRequest, pk):
+    book = Book.objects.get(pk=pk)
+    # make to sure to pass the post request if there's one
+    form = BookForm(request.POST or None, instance=book)
+
+    # user clicked on submit button
+    if request.method == 'POST':
+        if form.is_valid():
+            book.save()
+            return redirect("detail-book", pk=book.id)
+
+    # user clicked on update button
+    context = {
+        "form": form,
+        "book": book
+    }
+    return render(request, "partials/book_form.html", context)
