@@ -43,7 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_tailwind',
 ]
+
+# django tailwind crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+# django tailwind crispy forms
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
